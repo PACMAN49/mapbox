@@ -1,0 +1,80 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Chicago",
+        "description": "Welcome to Chiacago",
+        "pictureurl": "https://picsum.photos/seed/1/300/300",
+        "link": "https://www.google.fr"
+      },
+      "geometry": {
+        "coordinates": [
+          -87.6433756630502,
+          41.90606180311707
+        ],
+        "type": "Point"
+      },
+      "id": 0
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Sprinfield",
+        "description": "Here is Springfield",
+        "pictureurl": "https://picsum.photos/seed/2/300/300",
+        "link": "https://www.google.fr"
+      },
+      "geometry": {
+        "coordinates": [
+          -93.28783303276339,
+          37.20398932063159
+        ],
+        "type": "Point"
+      },
+      "id": 1
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Amarillo",
+        "description": "Never forget this city",
+        "pictureurl": "https://picsum.photos/seed/3/300/300",
+        "link": "https://www.google.fr"
+      },
+      "geometry": {
+        "coordinates": [
+          -101.83610566189961,
+          35.2025549163438
+        ],
+        "type": "Point"
+      },
+      "id": 2
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "",
+        "pictureurl": ""
+      },
+      "geometry": {
+        "coordinates": [
+          [
+            -87.63136821049264,
+            41.89274636241245
+          ],
+          [
+            -93.25141807482585,
+            37.15283554228668
+          ],
+          [
+            -101.80654216880676,
+            35.179440773540534
+          ]
+        ],
+        "type": "LineString"
+      }
+    }
+  ]
+}
