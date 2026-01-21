@@ -37,7 +37,7 @@ map.on("load", async () => {
     });
 
     const avatarImage = await new Promise((resolve, reject) => {
-      map.loadImage("/resources/img/avatar_bulle.png", (err, image) => {
+      map.loadImage("resources/img/avatar_bulle.png", (err, image) => {
         if (err) {
           reject(err);
           return;
