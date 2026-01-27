@@ -4,4 +4,63 @@
 {"type":"Feature","properties":{"day":2,"name":"Springfield, IL"},"geometry":{"type":"Point","coordinates":[-89.64371,39.80172]},"id":1},
 {"type":"Feature","properties":{"day":3,"name":"St. Louis, MO"},"geometry":{"type":"Point","coordinates":[-90.199402,38.627003]},"id":2},
 {"type":"Feature","properties":{"day":4,"name":"Joplin, MO"},"geometry":{"type":"Point","coordinates":[-94.51328,37.08423]},"id":3},
-{"type":"Feature","properties":{"day":5,"name":"Oklahoma City, OK"},"geometry":{"type":"Point","coordinates":[-97.51643,35.46756]},"id":4},{"type":"Feature","properties":{"day":6,"name":"Amarillo, TX"},"geometry":{"type":"Point","coordinates":[-101.8313,35.222]},"id":5},{"type":"Feature","properties":{"day":7,"name":"Santa Fe, NM"},"geometry":{"type":"Point","coordinates":[-105.9378,35.68698]}},{"type":"Feature","properties":{"day":8,"name":"Santa Fe, NM (journée libre)"},"geometry":{"type":"Point","coordinates":[-105.9378,35.68698]},"id":7},{"type":"Feature","properties":{"day":9,"name":"Gallup, NM"},"geometry":{"type":"Point","coordinates":[-108.74258,35.52808]}},{"type":"Feature","properties":{"day":10,"name":"Grand Canyon (Grand Canyon Village / South Rim), AZ"},"geometry":{"type":"Point","coordinates":[-112.137,36.052]}},{"type":"Feature","properties":{"day":11,"name":"Laughlin, NV"},"geometry":{"type":"Point","coordinates":[-114.57302,35.16778]}},{"type":"Feature","properties":{"day":12,"name":"Las Vegas, NV"},"geometry":{"type":"Point","coordinates":[-115.1398296,36.1699412]}},{"type":"Feature","properties":{"day":13,"name":"Victorville, CA"},"geometry":{"type":"Point","coordinates":[-117.29116,34.53611]}},{"type":"Feature","properties":{"day":14,"name":"Santa Monica Pier, CA"},"geometry":{"type":"Point","coordinates":[-118.4925,34.0052]}},{"type":"Feature","properties":{"day":15,"name":"Los Angeles, CA"},"geometry":{"type":"Point","coordinates":[-118.24368,34.05223]},"id":14}]}
+{"type":"Feature","properties":{"day":5,"name":"Oklahoma City, OK"},"geometry":{"type":"Point","coordinates":[-97.51643,35.46756]},"id":4},{"type":"Feature","properties":{"day":6,"name":"Amarillo, TX"},"geometry":{"type":"Point","coordinates":[-101.8313,35.222]},"id":5},{"type":"Feature","properties":{"day":7,"name":"Santa Fe, NM"},"geometry":{"type":"Point","coordinates":[-105.9378,35.68698]}},{"type":"Feature","properties":{"day":8,"name":"Santa Fe, NM (journée libre)"},"geometry":{"type":"Point","coordinates":[-105.9378,35.68698]},"id":7},{"type":"Feature","properties":{"day":9,"name":"Gallup, NM"},"geometry":{"type":"Point","coordinates":[-108.74258,35.52808]}},{"type":"Feature","properties":{"day":10,"name":"Grand Canyon (Grand Canyon Village / South Rim), AZ"},"geometry":{"type":"Point","coordinates":[-112.137,36.052]}},{"type":"Feature","properties":{"day":11,"name":"Laughlin, NV"},"geometry":{"type":"Point","coordinates":[-114.57302,35.16778]}},{"type":"Feature","properties":{"day":12,"name":"Las Vegas, NV"},"geometry":{"type":"Point","coordinates":[-115.1398296,36.1699412]}},{"type":"Feature","properties":{"day":13,"name":"Victorville, CA"},"geometry":{"type":"Point","coordinates":[-117.29116,34.53611]}},{"type":"Feature","properties":{"day":14,"name":"Santa Monica Pier, CA"},"geometry":{"type":"Point","coordinates":[-118.4925,34.0052]}},{"type":"Feature","properties":{"day":15,"name":"Los Angeles, CA"},"geometry":{"type":"Point","coordinates":[-118.24368,34.05223]},"id":14},
+{"type":"Feature","properties":{"type":"POI","name":"Cadillac Ranch","category":"landmark"},"geometry":{"type":"Point","coordinates":[-101.9876,35.1872]}},
+{"type":"Feature","properties":{"type":"POI","name":"Route 66 Museum","category":"museum"},"geometry":{"type":"Point","coordinates":[-97.9416,35.5152]}},
+{"type":"Feature","properties":{"type":"POI","name":"Petrified Forest National Park","category":"park","image":"https://lh3.googleusercontent.com/gps-cs-s/AHVAweoHtbRVKRERz18kVor3myW9NpMIUxEt1iQ8Wr2U5SLFKfUXgVQkveNCdnwIE5t-XaCNV_nFLJNLIPZ-b4kG9VbABIBLyvRxlzVy2nXfblzRBLsp0OH2SKscDKsfgi8RhLj685kwDA=s680-w680-h510-rw"},"geometry":{"type":"Point","coordinates":[-109.8068,34.9170]}},
+{
+      "type": "Feature",
+      "properties": { "type": "POI", "name": "Route 66 Association Hall of Fame & Museum (Pontiac, IL)" },
+      "geometry": { "type": "Point", "coordinates": [-88.62904, 40.88095] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "type": "POI", "name": "Chain of Rocks Bridge (St. Louis)" },
+      "geometry": { "type": "Point", "coordinates": [-90.1842, 38.7591] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "type": "POI", "name": "Devil’s Elbow Bridge (Missouri)" },
+      "geometry": { "type": "Point", "coordinates": [-92.06229, 37.84833] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "type": "POI", "name": "Gay Parita Gas Station (Missouri)" },
+      "geometry": { "type": "Point", "coordinates": [-93.67941, 37.19449] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "type": "POI", "name": "Blue Whale of Catoosa (Oklahoma)" },
+      "geometry": { "type": "Point", "coordinates": [-95.7455, 36.1871] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "type": "POI", "name": "Oklahoma Route 66 Museum (Clinton, OK)" },
+      "geometry": { "type": "Point", "coordinates": [-98.98691, 35.50649] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "type": "POI", "name": "Cadillac Ranch (Amarillo, TX)" },
+      "geometry": { "type": "Point", "coordinates": [-101.9870, 35.1872] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "type": "POI", "name": "Wigwam Motel (Holbrook, AZ)" },
+      "geometry": { "type": "Point", "coordinates": [-110.70234, 35.10629] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "type": "POI", "name": "Hoover Dam" },
+      "geometry": { "type": "Point", "coordinates": [-114.7377, 36.0161] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "type": "POI", "name": "Mojave Desert (point représentatif)" },
+      "geometry": { "type": "Point", "coordinates": [-115.4750, 35.0083] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "type": "POI", "name": "Santa Monica Pier" },
+      "geometry": { "type": "Point", "coordinates": [-118.49748, 34.00899] }
+    }
+ ]}
