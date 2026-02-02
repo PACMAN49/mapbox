@@ -29,7 +29,6 @@ body {
   display: grid;
   grid-template-rows: auto 1fr;
   gap: 2.5rem;
-  padding: 4rem clamp(1.5rem, 5vw, 6rem);
 }
 
 .hero h1 {
@@ -48,18 +47,38 @@ body {
   max-width: 32rem;
 }
 
-.card {
-  background: var(--panel);
-  border-radius: 24px;
-  box-shadow: var(--shadow);
-  padding: 1.25rem;
-}
-
 #map {
   width: 100%;
   height: min(70vh, 620px);
-  border-radius: 18px;
   overflow: hidden;
+}
+
+.map-wrap {
+  position: relative;
+}
+
+.map-hint {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  color: #111827;
+  font-size: 0.85rem;
+  letter-spacing: 0.01em;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+  backdrop-filter: blur(8px);
+  transition: opacity 220ms ease, transform 220ms ease;
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.map-wrap:hover .map-hint,
+.map-wrap:focus-within .map-hint {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .mapboxgl-popup.map-popup .mapboxgl-popup-content {
@@ -108,11 +127,13 @@ body {
 }
 
 @media (max-width: 720px) {
-  .page {
-    padding: 2.5rem 1.5rem;
+  #map {
+    height: min(65vh, 520px);
   }
 
-  .card {
-    padding: 1rem;
+  .map-hint {
+    bottom: 1rem;
+    left: 1rem;
+    font-size: 0.8rem;
   }
 }

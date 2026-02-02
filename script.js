@@ -17,7 +17,9 @@ const MAP_OPTIONS = {
   style: "mapbox://styles/mapbox/standard",
   center: [-93.28783303276339, 37.20398932063159],
   zoom: 4,
+  scrollZoom: true,
 };
+
 
 // Build a LineString from points sorted by their "day" property.
 const buildRouteLine = (features) => {
@@ -247,6 +249,25 @@ const bindPopupHandlers = (map) => {
   }
 };
 
+// Allow zoom only when ctrl + wheel (keeps page scroll otherwise).
+const enableCtrlScrollZoom = (map) => {
+  map.scrollZoom.enable();
+
+  const canvas = map.getCanvas();
+  const onWheel = (event) => {
+    const zoomKeyPressed = event.ctrlKey || event.metaKey;
+    if (!zoomKeyPressed) {
+      event.stopPropagation();
+      return;
+    }
+
+    // Prevent browser page-zoom when ctrl is pressed.
+    event.preventDefault();
+  };
+
+  canvas.addEventListener("wheel", onWheel, { capture: true, passive: false });
+};
+
 // Extend bounds using both points and the route line to frame all data.
 const fitMapToData = (map, features) => {
   const bounds = new mapboxgl.LngLatBounds();
@@ -312,3 +333,5 @@ map.on("load", async () => {
     console.error(error);
   }
 });
+
+enableCtrlScrollZoom(map);
