@@ -15,7 +15,6 @@ const POI_ICON_PREFIX = "poi-icon-";
 const MAP_OPTIONS = {
   container: "map",
   style: "mapbox://styles/mapbox/standard",
-  center: [-93.28783303276339, 37.20398932063159],
   zoom: 4,
   scrollZoom: true,
 };
@@ -287,51 +286,87 @@ const fitMapToData = (map, features) => {
   }
 };
 
-const map = new mapboxgl.Map(MAP_OPTIONS);
+const getDataBounds = (features) => {
+  const bounds = new mapboxgl.LngLatBounds();
 
-map.on("load", async () => {
+  for (const feature of features ?? []) {
+    if (feature.geometry?.type === "Point") {
+      bounds.extend(feature.geometry.coordinates);
+    } else if (feature.geometry?.type === "LineString") {
+      for (const coord of feature.geometry.coordinates) {
+        bounds.extend(coord);
+      }
+    }
+  }
+
+  if (bounds.isEmpty()) {
+    return null;
+  }
+
+  return bounds;
+};
+
+const initMap = async () => {
   try {
     const rawGeojson = await loadGeojson(GEOJSON_URL);
     const geojsonData = attachPoiIconIds(ensureRouteLine(rawGeojson));
+    const dataBounds = getDataBounds(geojsonData.features);
 
-    map.addSource(SOURCE_ID, {
-      type: "geojson",
-      data: geojsonData,
+    const map = new mapboxgl.Map({
+      ...MAP_OPTIONS,
+      ...(dataBounds
+        ? {
+            bounds: dataBounds,
+            fitBoundsOptions: { padding: 48, maxZoom: 8 },
+          }
+        : null),
     });
 
-    addRouteLayer(map);
+    map.on("load", async () => {
+      map.addSource(SOURCE_ID, {
+        type: "geojson",
+        data: geojsonData,
+      });
 
-    const avatarImage = await loadImage(map, AVATAR_IMAGE_URL);
-    if (!map.hasImage("avatar")) {
-      map.addImage("avatar", avatarImage);
-    }
+      addRouteLayer(map);
 
-    const poiImages = (geojsonData.features ?? [])
-      .filter((feature) => feature?.properties?.type === "POI")
-      .map((feature) => ({
-        iconId: feature?.properties?.iconId,
-        imageUrl: feature?.properties?.image,
-      }))
-      .filter(
-        (poi) => typeof poi.iconId === "string" && typeof poi.imageUrl === "string"
-      );
-
-    for (const poi of poiImages) {
-      if (map.hasImage(poi.iconId)) {
-        continue;
+      const avatarImage = await loadImage(map, AVATAR_IMAGE_URL);
+      if (!map.hasImage("avatar")) {
+        map.addImage("avatar", avatarImage);
       }
 
-      const image = await loadImage(map, poi.imageUrl);
-      map.addImage(poi.iconId, image);
-    }
+      const poiImages = (geojsonData.features ?? [])
+        .filter((feature) => feature?.properties?.type === "POI")
+        .map((feature) => ({
+          iconId: feature?.properties?.iconId,
+          imageUrl: feature?.properties?.image,
+        }))
+        .filter(
+          (poi) =>
+            typeof poi.iconId === "string" && typeof poi.imageUrl === "string"
+        );
 
-    addPointLayers(map);
-    addPoiLayer(map);
-    bindPopupHandlers(map);
-    fitMapToData(map, geojsonData.features);
+      for (const poi of poiImages) {
+        if (map.hasImage(poi.iconId)) {
+          continue;
+        }
+
+        const image = await loadImage(map, poi.imageUrl);
+        map.addImage(poi.iconId, image);
+      }
+
+      addPointLayers(map);
+      addPoiLayer(map);
+      bindPopupHandlers(map);
+      if (!dataBounds) {
+        fitMapToData(map, geojsonData.features);
+      }
+    });
+
+    enableCtrlScrollZoom(map);
   } catch (error) {
     console.error(error);
   }
-});
+};
 
-enableCtrlScrollZoom(map);
+initMap();
